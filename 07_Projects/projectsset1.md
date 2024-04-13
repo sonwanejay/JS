@@ -33,3 +33,41 @@ buttons.forEach(function(button){
   
   })
 })
+
+```
+## project 2
+```javascript
+
+const form = document.querySelector('form');
+// this usercase will give you empty
+// const height = parseIn(document.querySelector('#height).value)
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const height = document.querySelector('#height').value;
+  const weight = document.querySelector('#weight').value;
+  const results = document.querySelector('#results');
+
+  if (height === '' || height < 0 || isNaN(height)) {
+    results.innerHTML = `Please give a valid height${height}`;
+  } else if (weight === '' || weight < 0 || isNaN(weight)) {
+    results.innerHTML = `Please give a valid height${weight}`;
+  } else {
+    const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+    // shjow the result
+    results.innerHTML = `<span>${bmi}</span>`;
+  }
+});
+
+```
+## project 3
+```javascript
+const clock = document.getElementById('clock')
+// const clock = document.querySelector('#clock')
+
+
+setInterval(function(){
+  let date = new Date();
+//console.log(date.toLocaleDateString());
+clock.innerHTML = date.toLocaleTimeString();
+}, 1000)
